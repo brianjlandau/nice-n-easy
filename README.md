@@ -1,8 +1,10 @@
-= nice-n-easy
+# Nice 'n' Easy
 
 Description goes here.
 
-== Note on Patches/Pull Requests
+*Inspired by [twilson63's sinatra-formhelpers](http://github.com/twilson63/sinatra-formhelpers)*
+
+## Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -13,6 +15,6 @@ Description goes here.
    bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2009 Brian Landau. See LICENSE for details.
