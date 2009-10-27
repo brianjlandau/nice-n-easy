@@ -1,7 +1,6 @@
 require 'test/unit'
 require 'rubygems'
 require 'contest'
-require 'hpricot'
 require 'ruby-debug'
 Debugger.start
 Debugger.settings[:autoeval] = true
