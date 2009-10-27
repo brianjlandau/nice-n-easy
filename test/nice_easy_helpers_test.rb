@@ -250,12 +250,12 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
   context 'image submit button helper' do
     should 'create an image input tag' do
       html = image_input('save.png')
-      assert_select_in html, 'input[type="image"][src="/public/images/save.png"]'
+      assert_select_in html, 'input[type="image"][src="/images/save.png"]'
     end
 
     should 'create an image input tag with custom class' do
       html = image_input('save.png', :class => 'large')
-      assert_select_in html, 'input.large[type="image"][src="/public/images/save.png"]'
+      assert_select_in html, 'input.large[type="image"][src="/images/save.png"]'
     end
   end
 
@@ -524,6 +524,79 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
     
     teardown do
       @param = nil
+    end
+  end
+  
+  context 'image tag helper' do
+    should 'create an image tag for an image in the standard location' do
+      html = image_tag('button.jpg')
+      assert_select_in html, 'img[src="/images/button.jpg"]'
+    end
+    
+    should 'create an image tag for an image in the standard location with options' do
+      html = image_tag('button.jpg', :alt => 'Action', :class => 'rounded')
+      assert_select_in html, 'img.rounded[src="/images/button.jpg"][alt="Action"]'
+    end
+    
+    should 'create an image tag for an image in a custom location' do
+      html = image_tag('/icons/button.jpg')
+      assert_select_in html, 'img[src="/icons/button.jpg"]'
+    end
+    
+    should 'create an image tag for an image on another server' do
+      html = image_tag('http://www.example.com/buttons/close.jpg')
+      assert_select_in html, 'img[src="http://www.example.com/buttons/close.jpg"]'
+    end
+  end
+  
+  context 'javascript include tag helper' do
+    should 'create a script tag for a javascript file in the standard location' do
+      html = javascript_include_tag('jquery')
+      assert_select_in html, 'script[src="/javascripts/jquery.js"]'
+    end
+    
+    should 'create multiple script tags for javascript files in multiple locations' do
+      html = javascript_include_tag('jquery', 'facebox')
+      assert_select_in html, 'script[src="/javascripts/jquery.js"]'
+      assert_select_in html, 'script[src="/javascripts/facebox.js"]'
+    end
+    
+    should 'create a script tag for a javascript file in a custom location' do
+      html = javascript_include_tag('/scripts/custom.js')
+      assert_select_in html, 'script[src="/scripts/custom.js"]'
+    end
+    
+    should 'create a script tag for a javascript file on another server' do
+      html = javascript_include_tag('http://www.example.com/js/prototype.js')
+      assert_select_in html, 'script[src="http://www.example.com/js/prototype.js"]'
+    end
+  end
+  
+  context 'stylesheet link tag helper' do
+    should 'create a link tag for a stylesheet file in the standard location' do
+      html = stylesheet_link_tag('global')
+      assert_select_in html, 'link[href="/stylesheets/global.css"][rel="stylesheet"][type="text/css"][media="screen"]'
+    end
+    
+    should 'create a link tag for a stylesheet file in the standard location with media attribute' do
+      html = stylesheet_link_tag('print', :media => 'print')
+      assert_select_in html, 'link[href="/stylesheets/print.css"][rel="stylesheet"][type="text/css"][media="print"]'
+    end
+    
+    should 'create multiple link tags for stylesheet files in multiple locations' do
+      html = stylesheet_link_tag('global', 'print')
+      assert_select_in html, 'link[href="/stylesheets/global.css"][rel="stylesheet"][type="text/css"]'
+      assert_select_in html, 'link[href="/stylesheets/print.css"][rel="stylesheet"][type="text/css"]'
+    end
+    
+    should 'create a link tag for a stylesheet file in a custom location' do
+      html = stylesheet_link_tag('/styles/custom.css')
+      assert_select_in html, 'link[href="/styles/custom.css"][rel="stylesheet"][type="text/css"][media="screen"]'
+    end
+    
+    should 'create a link tag for a stylesheet file on another server' do
+      html = stylesheet_link_tag('http://www.example.com/css/sample.css')
+      assert_select_in html, 'link[href="http://www.example.com/css/sample.css"][rel="stylesheet"][type="text/css"][media="screen"]'
     end
   end
 

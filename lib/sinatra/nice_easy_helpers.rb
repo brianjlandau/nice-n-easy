@@ -12,6 +12,26 @@ module Sinatra
       tag :a, content, options.merge(:href => href)
     end
     
+    def image_tag(src, options = {})
+      single_tag :img, options.merge(:src => compute_public_path(src, 'images'))
+    end
+    
+    def javascript_include_tag(*sources)
+      sources.inject([]) { |tags, source|
+        tags << tag(:script, '', {:src => compute_public_path(source, 'javascripts', 'js'), :type => 'text/javascript'})
+        tags
+      }.join("\n")
+    end
+    
+    def stylesheet_link_tag(*sources)
+      options = sources.extract_options!.symbolize_keys
+      sources.inject([]) { |tags, source|
+        tags << single_tag(:link, {:href => compute_public_path(source, 'stylesheets', 'css'),
+                                   :type => 'text/css', :rel => 'stylesheet', :media => 'screen'}.merge(options))
+        tags
+      }.join("\n")
+    end
+    
     def label(*args)
       obj, field, options = extract_options_and_field(*args)
       display = options.delete(:label)
@@ -38,7 +58,7 @@ module Sinatra
     end
     
     def button(*args)
-      options = args.extract_options!
+      options = args.extract_options!.symbolize_keys
       name = args.shift
       content = args.shift
       type = args.shift || 'submit'
@@ -52,7 +72,7 @@ module Sinatra
     end
     
     def image_input(src, options={})
-      single_tag :input, options.merge(:type => 'image', :src => File.join('/public/images', src))
+      single_tag :input, options.merge(:type => 'image', :src => compute_public_path(src, 'images'))
     end
     
     def submit(value = "Save", options={})
@@ -75,7 +95,7 @@ module Sinatra
         obj = args.shift
         field = nil
       else
-        options = args.extract_options!
+        options = args.extract_options!.symbolize_keys
         items = args.pop
         obj = args.shift
         field = args.shift
@@ -190,10 +210,23 @@ module Sinatra
     end
     
     def extract_options_and_field(*args)
-      options = args.extract_options!
+      options = args.extract_options!.symbolize_keys
       obj = args.shift
       field = args.shift
       [obj, field, options]
+    end
+    
+    def compute_public_path(source, dir, ext = nil)
+      source_ext = File.extname(source)[1..-1]
+      if ext && source_ext.blank?
+        source += ".#{ext}"
+      end
+
+      unless source =~ %r{^[-a-z]+://}
+        source = "/#{dir}/#{source}" unless source[0] == ?/
+      end
+
+      return source
     end
     
   end
@@ -201,10 +234,20 @@ module Sinatra
   helpers NiceEasyHelpers
 end
 
-unless Hash.method_defined?(:extract_options!)
-  class Hash
+unless Array.method_defined?(:extract_options!)
+  class Array
     def extract_options!
       last.is_a?(::Hash) ? pop : {}
+    end
+  end
+end
+unless Hash.method_defined?(:symbolize_keys)
+  class Hash
+    def symbolize_keys
+      inject({}) do |options, (key, value)|
+        options[(key.to_sym rescue key) || key] = value
+        options
+      end
     end
   end
 end
