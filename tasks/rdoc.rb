@@ -7,7 +7,7 @@ begin
   Rake::RDocTask.new do |rdoc|
     version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
-    rdoc.rdoc_dir = 'rdoc'
+    rdoc.rdoc_dir = 'docs'
     rdoc.title = "Nice-n-Easy #{version} Documentation"
     rdoc.rdoc_files.include('README*')
     rdoc.rdoc_files.include('LICENSE')
