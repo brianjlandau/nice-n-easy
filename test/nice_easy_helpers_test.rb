@@ -29,12 +29,12 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
     end
   
     should 'create a label tag without a field with custom label' do
-      html = label(:email, :label => 'Email Address')
+      html = label(:email, :text => 'Email Address')
       assert_select_in html, 'label[for="email"]', 'Email Address'
     end
   
     should 'create a label tag with a field with custom label' do
-      html = label(:user, :email, :label => 'Email Address')
+      html = label(:user, :email, :text => 'Email Address')
       assert_select_in html, 'label[for="user_email"]', 'Email Address'
     end
   end
@@ -282,23 +282,23 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
     end
 
     should 'create a input hidden tag without a field' do
-      html = hidden_field(:external_id)
-      assert_select_in html, 'input#external_id[type="hidden"][name="external_id"]'
+      html = hidden_field(:external_id, :value => 25)
+      assert_select_in html, 'input#external_id[type="hidden"][name="external_id"][value="25"]'
     end
 
     should 'create a input hidden tag with a field' do
-      html = hidden_field(:user, :external_id)
-      assert_select_in html, 'input#user_external_id[type="hidden"][name=?]', 'user[external_id]'
+      html = hidden_field(:user, :external_id, :value => 25)
+      assert_select_in html, 'input#user_external_id[type="hidden"][name=?][value="25"]', 'user[external_id]'
     end
 
     should 'create a hidden field tag without a field with custom class' do
-      html = hidden_field(:external_id, :class => 'required')
-      assert_select_in html, 'input#external_id.required[type="hidden"][name="external_id"]'
+      html = hidden_field(:external_id, :class => 'required', :value => 25)
+      assert_select_in html, 'input#external_id.required[type="hidden"][name="external_id"][value="25"]'
     end
 
     should 'create a hidden field tag with a field with custom class' do
-      html = hidden_field(:user, :external_id, :class => 'required')
-      assert_select_in html, 'input#user_external_id.required[type="hidden"][name=?]', 'user[external_id]'
+      html = hidden_field(:user, :external_id, :class => 'required', :value => 25)
+      assert_select_in html, 'input#user_external_id.required[type="hidden"][name=?][value="25"]', 'user[external_id]'
     end
 
     should 'create a hidden field tag with value set by params when no field provided' do
@@ -326,46 +326,52 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
     end
   end
 
-  context 'checkbox helper' do
+  context 'checkbox field helper' do
     setup do
       @params = {}
     end
 
     should 'create a input checkbox tag without a field' do
-      html = checkbox(:subscribe, :value => 1)
+      html = checkbox_field(:subscribe, :value => 1)
       assert_select_in html, 'input#subscribe[type="checkbox"][name="subscribe"][value="1"]'
+    end
+    
+    should 'require a value option' do
+      assert_raise ArgumentError do
+        checkbox_field(:subscribe)
+      end
     end
 
     should 'create a input checkbox tag with a field' do
-      html = checkbox(:user, :subscribe, :value => 1)
+      html = checkbox_field(:user, :subscribe, :value => 1)
       assert_select_in html, 'input#user_subscribe[type="checkbox"][name=?][value="1"]', 'user[subscribe]'
     end
 
     should 'create a checkbox field tag without a field with custom class' do
-      html = checkbox(:subscribe, :value => 1, :class => 'required')
+      html = checkbox_field(:subscribe, :value => 1, :class => 'required')
       assert_select_in html, 'input#subscribe.required[type="checkbox"][name="subscribe"][value="1"]'
     end
 
     should 'create a checkbox field tag with a field with custom class' do
-      html = checkbox(:user, :subscribe, :value => 1, :class => 'required')
+      html = checkbox_field(:user, :subscribe, :value => 1, :class => 'required')
       assert_select_in html, 'input#user_subscribe.required[type="checkbox"][name=?][value="1"]', 'user[subscribe]'
     end
 
     should 'create a checkbox field tag with checked set by params when no field provided' do
       @params = {:subscribe => 1}.with_indifferent_access
-      html = checkbox(:subscribe, :value => 1)
+      html = checkbox_field(:subscribe, :value => 1)
       assert_select_in html, 'input#subscribe[type="checkbox"][name="subscribe"][value="1"][checked="checked"]'
     end
 
     should 'create a checkbox field tag with checked not set when value does not match' do
       @params = {:subscribe => 2}.with_indifferent_access
-      html = checkbox(:subscribe, :value => 1)
+      html = checkbox_field(:subscribe, :value => 1)
       assert_select_in html, 'input#subscribe[type="checkbox"][name="subscribe"][value="1"]:not([checked])'
     end
 
     should 'create a checkbox field tag with checked set by params' do
       @params = {:user => {:subscribe => 1}.with_indifferent_access}.with_indifferent_access
-      html = checkbox(:user, :subscribe, :value => 1)
+      html = checkbox_field(:user, :subscribe, :value => 1)
       assert_select_in html, 'input#user_subscribe[type="checkbox"][name=?][value="1"][checked="checked"]', 'user[subscribe]'
     end
 
@@ -373,7 +379,7 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
       user = User.new
       user.subscribe = 1
 
-      html = checkbox(user, :subscribe, :value => 1)
+      html = checkbox_field(user, :subscribe, :value => 1)
       assert_select_in html, 'input#user_subscribe[type="checkbox"][name=?][value="1"][checked="checked"]', 'user[subscribe]'
     end
     
@@ -383,12 +389,12 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
       end
       
       should 'craete a checkbox field tag with checked set if value is in param values' do
-        html = checkbox(:user, :subscribe, :value => 'newsletter')
+        html = checkbox_field(:user, :subscribe, :value => 'newsletter')
         assert_select_in html, 'input#user_subscribe[type="checkbox"][name=?][value="newsletter"][checked="checked"]', 'user[subscribe]'
       end
       
       should 'craete a checkbox field tag with checked not set if value is not in param values' do
-        html = checkbox(:user, :subscribe, :value => 'updates')
+        html = checkbox_field(:user, :subscribe, :value => 'updates')
         assert_select_in html, 'input#user_subscribe[type="checkbox"][name=?][value="updates"]:not([checked])', 'user[subscribe]'
       end
     end
@@ -405,40 +411,46 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
     end
 
     should 'create a input radio tag without a field' do
-      html = radio(:gender, :value => 'male')
+      html = radio_button(:gender, :value => 'male')
       assert_select_in html, 'input#gender[type="radio"][name="gender"][value="male"]'
+    end
+    
+    should 'require a value option' do
+      assert_raise ArgumentError do
+        radio_button(:gender)
+      end
     end
 
     should 'create a input radio tag with a field' do
-      html = radio(:user, :gender, :value => 'male')
+      html = radio_button(:user, :gender, :value => 'male')
       assert_select_in html, 'input#user_gender[type="radio"][name=?][value="male"]', 'user[gender]'
     end
 
     should 'create a radio field tag without a field with custom class' do
-      html = radio(:gender, :value => "male", :class => 'required')
+      html = radio_button(:gender, :value => "male", :class => 'required')
       assert_select_in html, 'input#gender.required[type="radio"][name="gender"][value="male"]'
     end
 
     should 'create a radio field tag with a field with custom class' do
-      html = radio(:user, :gender, :value => "male", :class => 'required')
+      html = radio_button(:user, :gender, :value => "male", :class => 'required')
       assert_select_in html, 'input#user_gender.required[type="radio"][name=?][value="male"]', 'user[gender]'
     end
 
     should 'create a radio field tag with checked set by params when no field provided' do
       @params = {:gender => "male"}.with_indifferent_access
-      html = radio(:gender, :value => "male")
+      html = radio_button(:gender, :value => "male")
       assert_select_in html, 'input#gender[type="radio"][name="gender"][value="male"][checked="checked"]'
     end
 
     should 'create a radio field tag with checked not set when value does not match' do
       @params = {:gender => 'female'}.with_indifferent_access
-      html = radio(:gender, :value => "male")
+      html = radio_button(:gender, :value => "male")
       assert_select_in html, 'input#gender[type="radio"][name="gender"][value="male"]:not([checked])'
     end
 
     should 'create a radio field tag with checked set by params' do
       @params = {:user => {:gender => "male"}.with_indifferent_access}.with_indifferent_access
-      html = radio(:user, :gender, :value => "male")
+      html = radio_button(:user, :gender, :value => "male")
       assert_select_in html, 'input#user_gender[type="radio"][name=?][value="male"][checked="checked"]', 'user[gender]'
     end
 
@@ -446,7 +458,7 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
       user = User.new
       user.gender = "male"
 
-      html = radio(user, :gender, :value => "male")
+      html = radio_button(user, :gender, :value => "male")
       assert_select_in html, 'input#user_gender[type="radio"][name=?][value="male"][checked="checked"]', 'user[gender]'
     end
 
@@ -458,6 +470,12 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
   context 'select field helper' do
     setup do
       @params = {}
+    end
+    
+    should 'require an items argument' do
+      assert_raise ArgumentError do
+        select_field(:membership_type)
+      end
     end
     
     should 'create a select tag with options' do
@@ -505,13 +523,13 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
     should 'create a select tag with value from params' do
       @params = {:membership_type => '1 Year'}.with_indifferent_access
       html = select_field(:membership_type, ['Lifetime', '1 Month', '1 Year'])
-      assert_select_in html, 'select#membership_type[name="membership_type"] > option[selected]', '1 Year'
+      assert_select_in html, 'select#membership_type[name="membership_type"] > option[selected="selected"]', '1 Year'
     end
     
     should 'create a select tag with object and field with value from params' do
       @params = {:user => {:membership_type => '1 Year'}.with_indifferent_access}.with_indifferent_access
       html = select_field(:user, :membership_type, ['Lifetime', '1 Month', '1 Year'])
-      assert_select_in html, 'select#user_membership_type > option[selected]', '1 Year'
+      assert_select_in html, 'select#user_membership_type > option[selected="selected"]', '1 Year'
     end
     
     should 'create a select tag with object and field with value from object' do
@@ -519,7 +537,7 @@ class NiceEasyHelpersTest < Test::Unit::TestCase
       user.membership_type = '1 Year'
       
       html = select_field(user, :membership_type, ['Lifetime', '1 Month', '1 Year'])
-      assert_select_in html, 'select#user_membership_type > option[selected]', '1 Year'
+      assert_select_in html, 'select#user_membership_type > option[selected="selected"]', '1 Year'
     end
     
     teardown do

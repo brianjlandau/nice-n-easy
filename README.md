@@ -1,8 +1,37 @@
 # Nice 'n' Easy
 
-Description goes here.
+> "Lets take it nice and easy  
+> Its gonna be so easy  
+> ...  
+> cause nice and easy does it every time"
 
-*Inspired by [twilson63's sinatra-formhelpers](http://github.com/twilson63/sinatra-formhelpers)*
+A set of Sinatra HTML view helpers to make your life nicer and easier.
+It includes helpers for form fields, links, and assets.
+
+In designing the library I tried to limit my use of external libs as much as possible.
+In particular, I found a number of similar Sinatra HTML helpers but a number included all of
+ActiveSupport.
+ActiveSupport's "blank" functionality is included here, and I copy "`extract_options!`" and
+"`symbolize_keys`" from there too but I add nothing else. Although if you include
+ActiveSupport yourself the `label` helper will take advantage of the `titleize` method.
+
+
+## Install & Usage
+
+Install:
+
+    sudo gem install nice-n-easy
+
+Add this to your Sinatra app:
+
+    require 'sinatra/nice_easy_helpers'
+    
+    class Main < Sinatra::Base
+      helpers Sinatra::NiceEasyHelpers
+    end
+
+See the RDocs for how to use the individual helpers
+
 
 ## Note on Patches/Pull Requests
  
