@@ -20,7 +20,7 @@ ActiveSupport yourself the `label` helper will take advantage of the `titleize` 
 
 Install:
 
-    sudo gem install nice-n-easy
+    sudo gem install nice-n-easy --source http://gemcutter.org
 
 Add this to your Sinatra app:
 
