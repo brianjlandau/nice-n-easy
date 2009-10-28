@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/sinatra/nice_easy_helpers.rb",
+     "nice-n-easy.gemspec",
      "tasks/rdoc.rb",
      "tasks/test.rb",
      "tasks/vendor/sdoc-helpers/markdown.rb",
