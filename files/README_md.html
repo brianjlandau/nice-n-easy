@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            README.md
+        </h1>
+        <ul class="files">
+            <li>README.md</li>
+            <li>Last modified: Wed Oct 28 15:54:25 -0400 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h1>Nice 'n' Easy</h1>
+
+<blockquote><p>"Lets take it nice and easy<br/>
+Its gonna be so easy<br/>
+...<br/>
+cause nice and easy does it every time"</p></blockquote>
+
+<p>A set of Sinatra HTML view helpers to make your life nicer and easier.<br/>
+It includes helpers for form fields, links, and assets.<br/>
+</p>
+
+<p>In designing the library I tried to limit my use of external libs as much as possible.<br/>
+In particular, I found a number of similar Sinatra HTML helpers but a number included all of<br/>
+ActiveSupport.
+ActiveSupport's "blank" functionality is included here, and I copy "<code>extract_options!</code>" and
+"<code>symbolize_keys</code>" from there too but I add nothing else. Although if you include
+ActiveSupport yourself the <code>label</code> helper will take advantage of the <code>titleize</code> method.</p>
+
+<h2>Install &amp; Usage</h2>
+
+<p>Install:</p>
+
+<pre><code>sudo gem install nice-n-easy
+</code></pre>
+
+<p>Add this to your Sinatra app:</p>
+
+<pre><code>require 'sinatra/nice_easy_helpers'
+
+class Main &lt; Sinatra::Base
+  helpers Sinatra::NiceEasyHelpers
+end
+</code></pre>
+
+<p>See the RDocs for how to use the individual helpers</p>
+
+<h2>Note on Patches/Pull Requests</h2>
+
+<ul>
+<li>Fork the project.</li>
+<li>Make your feature addition or bug fix.</li>
+<li>Add tests for it. This is important so I don't break it in a
+future version unintentionally.</li>
+<li>Commit, do not mess with rakefile, version, or history.
+(if you want to have your own version, that is fine but
+ bump version in a commit by itself I can ignore when I pull)</li>
+<li>Send me a pull request. Bonus points for topic branches.</li>
+</ul>
+
+
+<h2>Copyright</h2>
+
+<p>Copyright (c) 2009 Brian Landau. See LICENSE for details.</p>
+<script type="text/javascript">$(function() {
+  $('a').each(function() { $(this).attr('target', '_blank') })
+})</script>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

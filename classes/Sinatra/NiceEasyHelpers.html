@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Sinatra::NiceEasyHelpers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Sinatra::NiceEasyHelpers 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/sinatra/nice_easy_helpers_rb.html">lib/sinatra/nice_easy_helpers.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>B</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000008">button</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000012">checkbox_field</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>F</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000007">file_field</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>H</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000015">hidden_field</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>I</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000010">image_input</a>,</li>
+                
+                <li><a href="#M000001">image_tag</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>J</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000002">javascript_include_tag</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>L</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000004">label</a>,</li>
+                
+                <li><a href="#M000000">link</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>P</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000006">password_field</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000013">radio_button</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000014">select_field</a>,</li>
+                
+                <li><a href="#M000017">single_tag</a>,</li>
+                
+                <li><a href="#M000003">stylesheet_link_tag</a>,</li>
+                
+                <li><a href="#M000011">submit</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>T</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000016">tag</a>,</li>
+                
+                <li><a href="#M000009">text_area</a>,</li>
+                
+                <li><a href="#M000005">text_field</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000008">
+                    
+                    <a name="M000008"></a><b>button(name, content, options = {})
+button(name, content, type = "submit", options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a button element with the name/id and with the content provided.
+Defaults to the submit type.
+</p>
+<pre>
+  button &quot;continue&quot;, &quot;Save and continue&quot; # =&gt;
+    &lt;button id=&quot;continue&quot; name=&quot;continue&quot; type=&quot;submit&quot;&gt;Save and continue&lt;/button&gt;
+
+  button &quot;add-email&quot;, &quot;Add another Email&quot;, 'button' # =&gt;
+    &lt;button id=&quot;add-email&quot; name=&quot;add-email&quot; type=&quot;button&quot;&gt;Add another Email&lt;/button&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L200" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000008_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 200</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">button</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+      <span class="ruby-identifier">content</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+      <span class="ruby-identifier">type</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">||</span> <span class="ruby-value str">'submit'</span>
+      <span class="ruby-identifier">tag</span> <span class="ruby-identifier">:button</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000012">
+                    
+                    <a name="M000012"></a><b>checkbox_field(field, options)
+checkbox_field(obj, field, options)
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a checkbox input for the specified field, which may be on an
+object. If there is a value for the field in the request params or an
+object is provided with that value set, it will mark this field as checked
+if it matches the value for the field.
+</p>
+<pre>
+  checkbox_field :subscriptions, :value =&gt; 1 # =&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;subscriptions&quot; id=&quot;subscriptions&quot; value=&quot;1&quot; /&gt;
+
+  # Where the @params[:subscriptions] value is set already to &quot;1&quot;
+  checkbox_field :subscriptions, :value =&gt; 1 # =&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;subscriptions&quot; id=&quot;subscriptions&quot; value=&quot;1&quot; checked=&quot;checked&quot; /&gt;
+
+  checkbox_field :user, :subscriptions, :value =&gt; 1 # =&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;user[subscriptions]&quot; id=&quot;user_subscriptions&quot; value=&quot;1&quot; /&gt;
+
+  @user = User.new(:subscriptions =&gt; ['newsletters'])
+  checkbox_field @user, :subscriptions, :value =&gt; 'newsletters' # =&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;user[subscriptions]&quot; id=&quot;user_subscriptions&quot; value=&quot;newsletters&quot; checked=&quot;checked&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000012_source')" id="l_M000012_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L280" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000012_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 280</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkbox_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">input_tag</span> <span class="ruby-value str">'checkbox'</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000007">
+                    
+                    <a name="M000007"></a><b>file_field(field, options = {})
+file_field(obj, field, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a file input for the specified field, which may be on an object.
+</p>
+<pre>
+  file_field :picture # =&gt;
+    &lt;input type=&quot;file&quot; name=&quot;picture&quot; id=&quot;picture&quot; /&gt;
+
+  file_field :user, :picture # =&gt;
+    &lt;input type=&quot;file&quot; name=&quot;user[picture]&quot; id=&quot;user_picture&quot; /&gt;
+
+  @user = User.new
+  file_field @user, :picture # =&gt;
+    &lt;input type=&quot;file&quot; name=&quot;user[picture]&quot; id=&quot;user_picture&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L183" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000007_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 183</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">file_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">input_tag</span> <span class="ruby-value str">'file'</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000015">
+                    
+                    <a name="M000015"></a><b>hidden_field(field, options = {})
+hidden_field(obj, field, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a hidden input for the specified field, which may be on an object.
+If there is a value for the field in the request params or an object is
+provided with that value set, it will auto-populate the input. If not you
+should set the value with the <tt>:value</tt> option.
+</p>
+<pre>
+  hidden_field :external_id, :value =&gt; 25 # =&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;external_id&quot; id=&quot;external_id&quot; value=&quot;25&quot; /&gt;
+
+  # Where the @params[:external_id] value is set already to &quot;247&quot;
+  hidden_field :external_id # =&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;external_id&quot; id=&quot;external_id&quot; value=&quot;247&quot; /&gt;
+
+  hidden_field :user, :external_id, :value =&gt; 25 # =&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;user[external_id]&quot; id=&quot;user_external_id&quot; value=&quot;25&quot; /&gt;
+
+  @user = User.new(:external_id =&gt; 247)
+  hidden_field @user, :external_id # =&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;user[external_id]&quot; id=&quot;user_external_id&quot; value=&quot;247&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L423" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000015_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 423</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hidden_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">input_tag</span> <span class="ruby-value str">'hidden'</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000010">
+                    
+                    <a name="M000010"></a><b>image_input</b>(src, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates an image input field for the source and options provided. The image
+source is calculated the same way it is for <a
+href="NiceEasyHelpers.html#M000001">Sinatra::NiceEasyHelpers#image_tag</a>
+</p>
+<pre>
+  image_input &quot;buttons/save_close.png&quot;, :alt =&gt; 'Save and close'
+    &lt;input type=&quot;image&quot; src=&quot;buttons/save_close.png&quot; alt=&quot;Save and close&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L241" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000010_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 241</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_input</span>(<span class="ruby-identifier">src</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">single_tag</span> <span class="ruby-identifier">:input</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'image'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">src</span>, <span class="ruby-value str">'images'</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000001">
+                    
+                    <a name="M000001"></a><b>image_tag</b>(src, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates an image tag for the given image file. If a relative source is
+given it assumes it lives in <tt>/images/</tt> on your server.
+</p>
+<pre>
+  image_tag &quot;button.jpg&quot; :alt =&gt; 'Do some Action' # =&gt;
+    &lt;img src=&quot;/images/button.jpg&quot; alt=&quot;Do some Action&quot; /&gt;
+
+  image_tag &quot;/icons/delete.jpg&quot; :alt =&gt; 'Remove', :class =&gt; 'small-button' # =&gt;
+    &lt;img src=&quot;/icons/delete.jpg&quot; alt=&quot;Remove&quot; class=&quot;small-button&quot; /&gt;
+
+  image_tag &quot;http://www.example.com/close.jpg&quot; # =&gt;
+    &lt;img src=&quot;http://www.example.com/close.jpg&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L33" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000001_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 33</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">image_tag</span>(<span class="ruby-identifier">src</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">single_tag</span> <span class="ruby-identifier">:img</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">src</span>, <span class="ruby-value str">'images'</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000002">
+                    
+                    <a name="M000002"></a><b>javascript_include_tag</b>(*sources)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a script tag for each source provided. If you just supply a
+relative filename (with or without the .js extension) it will assume it can
+be found in your public/javascripts directory. If you provide an absolute
+path it will use that.
+</p>
+<pre>
+  javascript_include_tag 'jquery' # =&gt;
+    &lt;script src=&quot;/javascripts/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+  javascript_include_tag 'jquery', 'jquery-ui.min.js' # =&gt;
+    &lt;script src=&quot;/javascripts/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/javascripts/jquery-ui.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+  javascript_include_tag '/js/facebox.js' # =&gt;
+    &lt;script src=&quot;/js/facebox.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+  javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js' # =&gt;
+    &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L54" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000002_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 54</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">javascript_include_tag</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>)
+      <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">inject</span>([]) { <span class="ruby-operator">|</span><span class="ruby-identifier">tags</span>, <span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tag</span>(<span class="ruby-identifier">:script</span>, <span class="ruby-value str">''</span>, {<span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">source</span>, <span class="ruby-value str">'javascripts'</span>, <span class="ruby-value str">'js'</span>), <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/javascript'</span>})
+        <span class="ruby-identifier">tags</span>
+      }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000004">
+                    
+                    <a name="M000004"></a><b>label(field, options = {})
+label(obj, field, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a label tag for the specified field, which may be a field on an
+object. It will use the field name as the text for the label unless a
+<tt>:text</tt> option is provided.
+</p>
+<pre>
+  label :email # =&gt;
+    &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+
+  label :email, :text =&gt; &quot;Email Address:&quot; # =&gt;
+    &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;
+
+  label :user, :email # =&gt;
+    &lt;label for=&quot;user_email&quot;&gt;Email&lt;/label&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L102" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000004_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 102</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">label</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">obj</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">extract_options_and_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">text</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:text</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">blank?</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">String</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">:titleize</span>)
+          <span class="ruby-identifier">text</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">titleize</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">field</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">titleize</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">text</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">field</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">tag</span> <span class="ruby-identifier">:label</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:for</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">field</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-identifier">obj</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{obj}_#{field}&quot;</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000000">
+                    
+                    <a name="M000000"></a><b>link</b>(content, href, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a link to a given URL with the given text as the link.
+</p>
+<pre>
+  link &quot;Check this out&quot;, '/path/to/something' # =&gt;
+    &lt;a href=&quot;/path/to/something&quot;&gt;Check this out&lt;/a&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L18" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000000_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 18</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">href</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">tag</span> <span class="ruby-identifier">:a</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">href</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000006">
+                    
+                    <a name="M000006"></a><b>password_field(field, options = {})
+password_field(obj, field, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a password input for the specified field, which may be on an
+object. If there is a value for the field in the request params or an
+object is provided with that value set, it will auto-populate the input.
+</p>
+<pre>
+  password_field :password # =&gt;
+    &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; /&gt;
+
+  # Where the @params[:password] value is set already to &quot;secret&quot;
+  password_field :password # =&gt;
+    &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; value=&quot;secret&quot; /&gt;
+
+  password_field :user, :password # =&gt;
+    &lt;input type=&quot;password&quot; name=&quot;user[password]&quot; id=&quot;user_password&quot; /&gt;
+
+  @user = User.new(:password =&gt; 'secret')
+  password_field @user, :password # =&gt;
+    &lt;input type=&quot;password&quot; name=&quot;user[password]&quot; id=&quot;user_password&quot; value=&quot;secret&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L163" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000006_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 163</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">password_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">input_tag</span> <span class="ruby-value str">'password'</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000013">
+                    
+                    <a name="M000013"></a><b>radio_button(field, options)
+radio_button(obj, field, options)
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a radio button input for the specified field, which may be on an
+object. If there is a value for the field in the request params or an
+object is provided with that value set, it will mark this field as checked
+if it matches the value for the field.
+</p>
+<pre>
+  radio_button :education, :value =&gt; 'college' # =&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;education&quot; id=&quot;education&quot; value=&quot;college&quot; /&gt;
+
+  # Where the @params[:education] value is set already to &quot;college&quot;
+  radio_button :education, :value =&gt; 'college # =&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;education&quot; id=&quot;education&quot; value=&quot;college&quot; checked=&quot;checked&quot; /&gt;
+
+  radio_button :user, :education, :value =&gt; 'college' # =&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;user[education]&quot; id=&quot;user_education&quot; value=&quot;college&quot; /&gt;
+
+  @user = User.new(:education =&gt; 'college')
+  radio_button @user, :education, :value =&gt; 'college' # =&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;user[education]&quot; id=&quot;user_education&quot; value=&quot;college&quot; checked=&quot;checked&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000013_source')" id="l_M000013_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L307" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000013_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 307</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">radio_button</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">input_tag</span> <span class="ruby-value str">'radio'</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000014">
+                    
+                    <a name="M000014"></a><b>select_field(field, choices, options = {})
+select_field(obj, field, choices, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a select tag for the specified field, which may be on an object.
+The helper also creates the options elements inside the select tag for each
+of the choices provided.
+</p>
+<p>
+Given a choices container of an array of strings the strings will be used
+for the test and value of the options. Given a container where the elements
+respond to first and last (such as a two-element array), the “lasts”
+serve as option values and the “firsts” as option text. Hashes are
+turned into this form automatically, so the keys become “firsts” and
+values become lasts.
+</p>
+<p>
+If there is a value for the field in the request params or an object is
+provided with that value set, it will auto-select that options from the
+choices.
+</p>
+<pre>
+  select_field :membership_type, ['Lifetime', '1 Month', '1 Year'] # =&gt;
+    &lt;select name=&quot;membership_type&quot; id=&quot;membership_type&quot;&gt;
+      &lt;option value=&quot;Lifetime&quot;&gt;Lifetime&lt;/option&gt;
+      &lt;option value=&quot;1 Month&quot;&gt;1 Month&lt;/option&gt;
+      &lt;option value=&quot;1 Year&quot;&gt;1 Year&lt;/option&gt;
+    &lt;/select&gt;
+
+  select_field :membership_type, [['Lifetime', 1], ['1 Month', 2], ['1 Year', 3]] # =&gt;
+    &lt;select name=&quot;membership_type&quot; id=&quot;membership_type&quot;&gt;
+      &lt;option value=&quot;1&quot;&gt;Lifetime&lt;/option&gt;
+      &lt;option value=&quot;2&quot;&gt;1 Month&lt;/option&gt;
+      &lt;option value=&quot;3&quot;&gt;1 Year&lt;/option&gt;
+    &lt;/select&gt;
+
+  select_field :membership_type, {'Lifetime' =&gt; 1, '1 Month' =&gt; 2, '1 Year' =&gt; 3} # =&gt;
+    &lt;select name=&quot;membership_type&quot; id=&quot;membership_type&quot;&gt;
+      &lt;option value=&quot;1&quot;&gt;Lifetime&lt;/option&gt;
+      &lt;option value=&quot;2&quot;&gt;1 Month&lt;/option&gt;
+      &lt;option value=&quot;3&quot;&gt;1 Year&lt;/option&gt;
+    &lt;/select&gt;
+
+  # Where the @params[:membership_type] value is set already to &quot;year&quot;
+  select_field :membership_type, {'Lifetime' =&gt; 'life', '1 Month' =&gt; 'month', '1 Year' =&gt; 'year'} # =&gt;
+    &lt;select name=&quot;membership_type&quot; id=&quot;membership_type&quot;&gt;
+      &lt;option value=&quot;life&quot;&gt;Lifetime&lt;/option&gt;
+      &lt;option value=&quot;month&quot;&gt;1 Month&lt;/option&gt;
+      &lt;option value=&quot;year&quot; selected=&quot;selected&quot;&gt;1 Year&lt;/option&gt;
+    &lt;/select&gt;
+
+  select_field :user, :membership_type, ['Lifetime', '1 Month', '1 Year'] # =&gt;
+    &lt;select name=&quot;user[membership_type]&quot; id=&quot;user_membership_type&quot;&gt;
+      &lt;option value=&quot;Lifetime&quot;&gt;Lifetime&lt;/option&gt;
+      &lt;option value=&quot;1 Month&quot;&gt;1 Month&lt;/option&gt;
+      &lt;option value=&quot;1 Year&quot;&gt;1 Year&lt;/option&gt;
+    &lt;/select&gt;
+
+  @user = User.new(:membership_type =&gt; 'month')
+  select_field :user, :membership_type, {'Lifetime' =&gt; 'life', '1 Month' =&gt; 'month', '1 Year' =&gt; 'year'} # =&gt;
+    &lt;select name=&quot;user[membership_type]&quot; id=&quot;user_membership_type&quot;&gt;
+      &lt;option value=&quot;life&quot;&gt;Lifetime&lt;/option&gt;
+      &lt;option value=&quot;month&quot; selected=&quot;selected&quot;&gt;1 Month&lt;/option&gt;
+      &lt;option value=&quot;year&quot;&gt;1 Year&lt;/option&gt;
+    &lt;/select&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L372" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000014_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 372</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value">2</span>
+        <span class="ruby-identifier">options</span> = {}
+        <span class="ruby-identifier">choices</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-identifier">field</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>
+        <span class="ruby-identifier">choices</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-identifier">field</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerable</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">'the choices parameter must be an Enumerable object'</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">field</span>)
+      
+      <span class="ruby-identifier">content</span> = <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">inject</span>([]) { <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">choice</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">text</span>, <span class="ruby-identifier">opt_val</span> = <span class="ruby-identifier">option_text_and_value</span>(<span class="ruby-identifier">choice</span>)
+        <span class="ruby-identifier">opts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tag</span>(<span class="ruby-identifier">:option</span>, <span class="ruby-identifier">escape_once</span>(<span class="ruby-identifier">text</span>), {<span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">escape_once</span>(<span class="ruby-identifier">opt_val</span>), <span class="ruby-identifier">:selected</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">opt_val</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value</span>)})
+      }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+      
+      <span class="ruby-identifier">tag</span> <span class="ruby-identifier">:select</span>, <span class="ruby-node">&quot;\n#{content}\n&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">get_id_and_name</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">field</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000017">
+                    
+                    <a name="M000017"></a><b>single_tag</b>(name, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a self-closing/empty-element tag of the name specified.
+</p>
+<pre>
+  single_tag :img, :src =&gt; &quot;/images/face.jpg&quot; # =&gt;
+    &lt;img src=&quot;/images/face.jpg&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L440" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000017_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 440</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">single_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-node">&quot;&lt;#{name.to_s}#{tag_options(options)} /&gt;&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000003">
+                    
+                    <a name="M000003"></a><b>stylesheet_link_tag(*sources, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+This helper is used to create a set of link tags for CSS stylesheets. If
+you just supply a relative filename (with or without the .css extension) it
+will assume it can be found in your public/javascripts directory. If you
+provide an absolute path it will use that. You can also pass attributes for
+the link tag in a hash as the last argument.
+</p>
+<pre>
+  stylesheet_link_tag 'global' # =&gt;
+    &lt;link href=&quot;/stylesheets/global.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+
+  stylesheet_link_tag 'global' # =&gt;
+    &lt;link href=&quot;/stylesheets/global.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L76" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000003_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 76</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stylesheet_link_tag</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">sources</span>)
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>
+      <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">inject</span>([]) { <span class="ruby-operator">|</span><span class="ruby-identifier">tags</span>, <span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">tags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">single_tag</span>(<span class="ruby-identifier">:link</span>, {<span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">compute_public_path</span>(<span class="ruby-identifier">source</span>, <span class="ruby-value str">'stylesheets'</span>, <span class="ruby-value str">'css'</span>),
+                                   <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/css'</span>, <span class="ruby-identifier">:rel</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'stylesheet'</span>, <span class="ruby-identifier">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'screen'</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))
+        <span class="ruby-identifier">tags</span>
+      }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000011">
+                    
+                    <a name="M000011"></a><b>submit</b>(value = &quot;Save&quot;, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates as submit input field with the text and options provided.
+</p>
+<pre>
+  submit # =&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Save&quot; /&gt;
+
+  submit 'Save and continue' # =&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Save and continue&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L253" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000011_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 253</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">submit</span>(<span class="ruby-identifier">value</span> = <span class="ruby-value str">&quot;Save&quot;</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">single_tag</span> <span class="ruby-identifier">:input</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;submit&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000016">
+                    
+                    <a name="M000016"></a><b>tag</b>(name, content, options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creats a standard open and close tags for the name provided with the
+content and attributes supplied.
+</p>
+<pre>
+  tag :h2, &quot;Sinatra Steps to the Stage&quot;, :title =&gt; &quot;Applause&quot; # =&gt;
+    &lt;h1 title=&quot;Applause&quot;&gt;Sinatra Steps to the Stage&lt;/h1&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L432" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000016_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 432</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-node">&quot;&lt;#{name.to_s}#{tag_options(options)}&gt;#{content}&lt;/#{name.to_s}&gt;&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000009">
+                    
+                    <a name="M000009"></a><b>text_area(field, options = {})
+text_area(obj, field, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a text area tag for the specified field, which may be on an object.
+If there is a value for the field in the request params or an object is
+provided with that value set, it will auto-populate the input.
+</p>
+<pre>
+  text_area :description # =&gt;
+    &lt;textarea name=&quot;description&quot; id=&quot;description&quot;&gt;&lt;/textarea&gt;
+
+  # Where the @params[:description] value is set already to &quot;A brand new book.&quot;
+  text_area :description # =&gt;
+    &lt;textarea name=&quot;description&quot; id=&quot;description&quot;&gt;A brand new book.&lt;/textarea&gt;
+
+  text_area :product, :description # =&gt;
+    &lt;textarea name=&quot;product[description]&quot; id=&quot;product_description&quot;&gt;&lt;/textarea&gt;
+
+  @product = Product.new(:description =&gt; 'A brand new book.')
+  text_area @product, :description # =&gt;
+    &lt;textarea name=&quot;product[description]&quot; id=&quot;product_description&quot;&gt;&lt;/textarea&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L230" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000009_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 230</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">text_area</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">obj</span>, <span class="ruby-identifier">field</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">extract_options_and_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">field</span>)
+      <span class="ruby-identifier">tag</span> <span class="ruby-identifier">:textarea</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">get_id_and_name</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">field</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000005">
+                    
+                    <a name="M000005"></a><b>text_field(field, options = {})
+text_field(obj, field, options = {})
+</b>
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a text input for the specified field, which may be on an object. If
+there is a value for the field in the request params or an object is
+provided with that value set, it will auto-populate the input.
+</p>
+<pre>
+  text_field :email # =&gt;
+    &lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; /&gt;
+
+  # Where the @params[:email] value is set already to &quot;joe@example.com&quot;
+  text_field :email # =&gt;
+    &lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;joe@example.com&quot; /&gt;
+
+  text_field :user, :email # =&gt;
+    &lt;input type=&quot;text&quot; name=&quot;user[email]&quot; id=&quot;user_email&quot; /&gt;
+
+  @user = User.new(:email =&gt; 'joe@example.com')
+  text_field @user, :email # =&gt;
+    &lt;input type=&quot;text&quot; name=&quot;user[email]&quot; id=&quot;user_email&quot; value=&quot;joe@example.com&quot; /&gt;
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        
+                        | <a href="http://github.com/brianjlandau/nice-n-easy/blob/d99b84c6de71a02355e9895d578644c255299368/lib/sinatra/nice_easy_helpers.rb#L137" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000005_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/sinatra/nice_easy_helpers.rb, line 137</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">text_field</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">input_tag</span> <span class="ruby-value str">'text'</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
