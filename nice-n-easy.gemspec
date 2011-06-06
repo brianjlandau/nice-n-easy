@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{nice-n-easy}
-  s.version = "1.0.0"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brian Landau"]
-  s.date = %q{2009-10-28}
+  s.date = %q{2011-06-06}
   s.description = %q{A set of Sinatra HTML view helpers to make your life nicer and easier. Helpers for forms, links, and assets.}
   s.email = %q{brian.landau@viget.com}
   s.extra_rdoc_files = [
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "VERSION",
+     "deps.rip",
      "lib/sinatra/nice_easy_helpers.rb",
      "nice-n-easy.gemspec",
      "tasks/rdoc.rb",
@@ -36,7 +37,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/brianjlandau/nice-n-easy}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Sinatra HTML helpers that are nice-n-easy to use.}
   s.test_files = [
     "test/nice_easy_helpers_test.rb",
@@ -48,16 +49,16 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<sinatra>, ["~> 0.9"])
-      s.add_runtime_dependency(%q<activesupport>, ["~> 2.3"])
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<sinatra>, [">= 0"])
+      s.add_runtime_dependency(%q<activesupport>, ["~> 3.0"])
     else
-      s.add_dependency(%q<sinatra>, ["~> 0.9"])
-      s.add_dependency(%q<activesupport>, ["~> 2.3"])
+      s.add_dependency(%q<sinatra>, [">= 0"])
+      s.add_dependency(%q<activesupport>, ["~> 3.0"])
     end
   else
-    s.add_dependency(%q<sinatra>, ["~> 0.9"])
-    s.add_dependency(%q<activesupport>, ["~> 2.3"])
+    s.add_dependency(%q<sinatra>, [">= 0"])
+    s.add_dependency(%q<activesupport>, ["~> 3.0"])
   end
 end
 
