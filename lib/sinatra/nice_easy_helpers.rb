@@ -1,6 +1,6 @@
 require 'sinatra/base'
 unless Object.method_defined?(:blank?)
-  require 'active_support/core_ext/blank'
+  require 'active_support/core_ext/object/blank'
 end
 
 module Sinatra #:nodoc:

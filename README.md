@@ -15,6 +15,10 @@ ActiveSupport's "blank" functionality is included here, and I copy "`extract_opt
 "`symbolize_keys`" from there too but I add nothing else. Although if you include
 ActiveSupport yourself the `label` helper will take advantage of the `titleize` method.
 
+Another influence on my design was ease of compatibility with [mustache](http://github.com/defunkt/mustache).
+This meant that methods like `form_for` that take a block should be avoided,
+as these would be harder to implement in a mustache (although not impossible).
+
 
 ## Install & Usage
 
@@ -39,7 +43,7 @@ See the [RDocs](http://brianjlandau.github.com/nice-n-easy/) for how to use the 
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
   future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
+* Commit, do not mess with rake file, version, or history.
   (if you want to have your own version, that is fine but
    bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.

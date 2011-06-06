@@ -10,8 +10,8 @@ begin
     gem.email = "brian.landau@viget.com"
     gem.homepage = "http://github.com/brianjlandau/nice-n-easy"
     gem.authors = ["Brian Landau"]
-    gem.add_dependency('sinatra', '~> 0.9')
-    gem.add_dependency('activesupport', '~> 2.3')
+    gem.add_dependency('sinatra')
+    gem.add_dependency('activesupport', '~> 3.0')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -22,5 +22,4 @@ end
 require 'tasks/test'
 require 'tasks/rdoc'
 
-task :test => :check_dependencies
 task :default => :test

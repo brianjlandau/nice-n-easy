@@ -1,10 +1,15 @@
 require 'active_support'
 require 'rexml/document'
+require 'active_support'
+require 'active_support/hash_with_indifferent_access'
+require 'active_support/core_ext'
 require 'action_controller/vendor/html-scanner'
-require 'action_controller/assertions/selector_assertions'
+require 'action_controller/vendor/html-scanner/html/node'
+require 'action_controller/vendor/html-scanner/html/document'
+require 'action_dispatch/testing/assertions/selector'
 
 module TagMatchingAssertions
-  include ActionController::Assertions::SelectorAssertions
+  include ActionDispatch::Assertions::SelectorAssertions
   
   def assert_tag_in(*opts)
     target = opts.shift
