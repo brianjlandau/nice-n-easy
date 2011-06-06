@@ -11,6 +11,32 @@ module Sinatra #:nodoc:
     HTML_ESCAPE = { '&' => '&amp;',  '>' => '&gt;',   '<' => '&lt;', '"' => '&quot;' }
     # :startdoc:
     
+    @@asset_sub_directories ||= {
+      :images => 'images',
+      :javascript => 'javascripts',
+      :stylesheets => 'stylesheets'
+    }
+    def self.asset_sub_directories
+      @@asset_sub_directories
+    end
+    def self.asset_sub_directories=(options)
+      @@asset_sub_directories = options
+    end
+    def asset_sub_directories
+      @@asset_sub_directories
+    end
+    
+    @@asset_directory = nil
+    def self.asset_directory
+      @@asset_directory
+    end
+    def self.asset_directory=(path)
+      @@asset_directory = path
+    end
+    def asset_directory
+      @@asset_directory
+    end
+    
     # Creates a link to a given URL with the given text as the link.
     #   link "Check this out", '/path/to/something' # =>
     #     <a href="/path/to/something">Check this out</a>
@@ -31,7 +57,7 @@ module Sinatra #:nodoc:
     #     <img src="http://www.example.com/close.jpg" />
     #
     def image_tag(src, options = {})
-      single_tag :img, options.merge(:src => compute_public_path(src, 'images'))
+      single_tag :img, options.merge(:src => compute_public_path(src, asset_sub_directories[:images]))
     end
     
     # Creates a script tag for each source provided. If you just supply a relative filename
@@ -53,7 +79,7 @@ module Sinatra #:nodoc:
     #
     def javascript_include_tag(*sources)
       sources.inject([]) { |tags, source|
-        tags << tag(:script, '', {:src => compute_public_path(source, 'javascripts', 'js'), :type => 'text/javascript'})
+        tags << tag(:script, '', {:src => compute_public_path(source, asset_sub_directories[:javascript], 'js'), :type => 'text/javascript'})
         tags
       }.join("\n")
     end
@@ -76,7 +102,7 @@ module Sinatra #:nodoc:
     def stylesheet_link_tag(*sources)
       options = sources.extract_options!.symbolize_keys
       sources.inject([]) { |tags, source|
-        tags << single_tag(:link, {:href => compute_public_path(source, 'stylesheets', 'css'),
+        tags << single_tag(:link, {:href => compute_public_path(source, asset_sub_directories[:stylesheets], 'css'),
                                    :type => 'text/css', :rel => 'stylesheet', :media => 'screen'}.merge(options))
         tags
       }.join("\n")
@@ -239,7 +265,7 @@ module Sinatra #:nodoc:
     #   image_input "buttons/save_close.png", :alt => 'Save and close'
     #     <input type="image" src="buttons/save_close.png" alt="Save and close" />
     def image_input(src, options = {})
-      single_tag :input, options.merge(:type => 'image', :src => compute_public_path(src, 'images'))
+      single_tag :input, options.merge(:type => 'image', :src => compute_public_path(src, asset_sub_directories[:images]))
     end
     
     # Creates as submit input field with the text and options provided.
@@ -537,8 +563,34 @@ module Sinatra #:nodoc:
       unless source =~ %r{^[-a-z]+://}
         source = "/#{dir}/#{source}" unless source[0] == ?/
       end
+      
+      source = add_asset_id(source)
 
       return source
+    end
+    
+    @@asset_timestamps_cache = {}
+    @@asset_timestamps_cache_guard = Mutex.new
+    
+    def add_asset_id(source)
+      if asset_directory.present?
+        if @@cache_asset_timestamps && (asset_id = @@asset_timestamps_cache[source])
+          asset_id
+        else
+          path = File.join(asset_directory, source)
+          asset_id = File.exist?(path) ? File.mtime(path).to_i.to_s : ''
+
+          if @@cache_asset_timestamps
+            @@asset_timestamps_cache_guard.synchronize do
+              @@asset_timestamps_cache[source] = asset_id
+            end
+          end
+        end
+        if asset_id.present?
+          source += "?#{asset_id}"
+        end
+      end
+      source
     end
     
   end
